@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login({ onLogin, onRegister }) {
   const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ function Login({ onLogin, onRegister }) {
   const loginUser = async () => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/login",
+        `${API_URL}/login`,
         {
           email,
           password,
@@ -38,29 +39,26 @@ function Login({ onLogin, onRegister }) {
         type="email"
         placeholder="Email"
         value={email}
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
+        onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
         type="password"
         placeholder="Password"
         value={password}
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       <button onClick={loginUser}>
         Login
       </button>
+
       <button
-  onClick={onRegister}
-  style={{ marginTop: "10px" }}
->
-  Create Account
-</button>
+        onClick={onRegister}
+        style={{ marginTop: "10px" }}
+      >
+        Create Account
+      </button>
     </div>
   );
 }
