@@ -449,7 +449,7 @@ This project demonstrates:
 
 # 👨‍💻 Author
 
-**SOHAM CHHUALSINGH**
+**Swastik_Kumar_Purohit**
 
 B.Tech Computer Science Student
 
